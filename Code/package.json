@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Let's do it one more time coz it is amazing.",
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
@@ -16,6 +18,8 @@
   },
   "homepage": "https://github.com/RitikaJain8818/ReactOneMoreTimee#readme",
   "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "babel-plugin-transform-remove-console": "^6.9.4",
     "parcel": "^2.8.2",
     "process": "^0.11.10"
   },
@@ -23,7 +27,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "browserlist": [
+  "browserslist": [
     "last 2 Chrome versions"
   ]
 }
