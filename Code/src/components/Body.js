@@ -16,7 +16,7 @@ const Body = () => {
 
   const fetchData = async () => {
     const response = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5204303&lng=73.8567437&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
 
     const jsonData = await response.json();
@@ -27,7 +27,10 @@ const Body = () => {
         ?.restaurants
     );
 
-    setFilteredRestaurants(listOfRestaurants);
+    setFilteredRestaurants(
+      jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants
+    );
   };
 
   //Conditional Rendering
