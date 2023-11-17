@@ -70,3 +70,12 @@
     height: 400px;
     background-color: #fff8dc;
 }
+
+.login-btn{
+    padding: 10px 10px;
+    cursor: pointer;
+}
+
+.filter{
+    display: flex;
+}
