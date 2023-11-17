@@ -1,0 +1,32 @@
+/*
+Created a local server
+HOT Module Replacement
+File Watcher Algorithm : Written in C++
+Caching during Development :: Faster Builds
+Bundling
+Minify
+Cleaning our Code
+Dev and Production Build
+Super fast build algorithm
+Image Optimization
+Compression
+Compatible with older versions of Browser
+HTTPS on dev -> npx parcel index.html --https
+PORT Number
+Consistent Hashing Algorithm to To cache things up
+Zero Configuration
+Tree Shaking: Removing Unwanted Code
+Transitive Dependencies
+Diagnostics
+Differential Bundling - supports old browsers
+*/
+
+//JSX => React.createElement  => Object => HTML(DOM)
+/*
+data = api.getData()
+
+Let's say api got hacked 😮
+Hackers can insert any malicious piece of JS code. 
+XSS Attack: Cross-site scripting attack.
+But But, JSX does the sanitization. So, it keeps the app safe.
+*/
