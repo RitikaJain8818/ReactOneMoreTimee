@@ -3,10 +3,6 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
-  //1. useState should not be written outside the component, always be written inside the functional component
-  //2. State variables should not be created inside if/else, for/while loops or even functions.
-  //3. Best practice is to create all state variables at the top of the functional component. It is to avoid any inconsistency.
-
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
