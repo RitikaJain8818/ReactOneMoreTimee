@@ -67,7 +67,7 @@ const Body = () => {
               (res) => res.info.avgRating > 4
             );
             console.log(filteredData);
-            setListOfRestaurants(filteredData);
+            setFilteredRestaurants(filteredData);
           }}
         >
           Top Rated Restaurants
