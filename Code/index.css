@@ -79,3 +79,19 @@
 .filter{
     display: flex;
 }
+
+.res-details{
+   margin:auto;
+   width: 50%;
+}
+.res-top-heading{
+    display: flex;
+    justify-content: space-between;
+}
+
+.res-rating{
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
