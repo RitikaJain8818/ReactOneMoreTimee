@@ -2,37 +2,25 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useRestaurantList from "../../utils/useRestaurantList";
 
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
 
   //Whenever React variable updates, react triggeres a reconcillation cycle(re-renders the component)
   console.log("Body Rendered");
 
+  const listOfRestaurants =
+    useRestaurantList()?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+      ?.restaurants;
+
+  console.log(listOfRestaurants);
+
   useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    const response = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-
-    const jsonData = await response.json();
-
-    //Optional Chaining
-    setListOfRestaurants(
-      jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
-
-    setFilteredRestaurants(
-      jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
-  };
+    setFilteredRestaurants(listOfRestaurants);
+    console.log(listOfRestaurants);
+  }, [listOfRestaurants]);
 
   //Conditional Rendering
   return listOfRestaurants?.length === 0 ? (

@@ -7,14 +7,17 @@ const useRestaurantMenu = (resId) => {
   useEffect(() => {
     console.log("Inside useRestaurantMenu useEffect");
     fetchData();
+    console.log("After Fetch Data", restaurantInfo);
   }, []);
 
   fetchData = async () => {
     const response = await fetch(MENU_URL + resId);
     const json = await response.json();
     setRestaurantInfo(json.data);
-    console.log(restaurantInfo);
+    setRestaurantInfo(json.data);
+    console.log("Inside Fetch Data", restaurantInfo);
   };
+  console.log("Outside Fetch Data", restaurantInfo);
   return restaurantInfo;
 };
 export default useRestaurantMenu;
