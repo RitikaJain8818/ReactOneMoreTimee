@@ -26,7 +26,9 @@ const Body = () => {
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false) {
     return (
-      <h1>Looks like you are offline. Please check your network connection.</h1>
+      <h1>
+        Looks like you are offline. Please check your internet connection.
+      </h1>
     );
   }
 
