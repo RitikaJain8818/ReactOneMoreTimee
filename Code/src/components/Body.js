@@ -40,7 +40,7 @@ const Body = () => {
   console.log("Within Body");
 
   //Conditional Rendering
-  return listOfRestaurants?.length === 0 ? (
+  return !listOfRestaurants || listOfRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
