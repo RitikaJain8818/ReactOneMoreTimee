@@ -14,7 +14,8 @@ const Header = () => {
       <div className="flex items-center">
         <ul className="flex p-4 m-4">
           <li className="px-4">
-            Online Status : {useOnlineStatus() === true ? "✅" : "🔴"}
+            Online Status :{" "}
+            {useOnlineStatus("from Header") === true ? "✅" : "🔴"}
           </li>
           <li className="px-4">
             <Link to={"/"}>Home</Link>

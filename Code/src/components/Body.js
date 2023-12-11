@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -12,6 +12,9 @@ const Body = () => {
   //Whenever React variable updates, react triggeres a reconcillation cycle(re-renders the component)
   console.log("Body Rendered");
 
+  const PromotedRestaurantCard = withPromotedLabel(RestaurantCard);
+  console.log(PromotedRestaurantCard());
+
   const listOfRestaurants =
     useRestaurantList()?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
       ?.restaurants;
@@ -19,11 +22,13 @@ const Body = () => {
   console.log(listOfRestaurants);
 
   useEffect(() => {
+    console.log("Inside useEffect");
     setFilteredRestaurants(listOfRestaurants);
     console.log(listOfRestaurants);
+    console.log("After useEffect");
   }, [listOfRestaurants]);
 
-  const onlineStatus = useOnlineStatus();
+  const onlineStatus = useOnlineStatus("from Body");
   if (onlineStatus === false) {
     return (
       <h1>
@@ -31,6 +36,8 @@ const Body = () => {
       </h1>
     );
   }
+
+  console.log("Within Body");
 
   //Conditional Rendering
   return listOfRestaurants?.length === 0 ? (
@@ -79,7 +86,11 @@ const Body = () => {
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
           >
-            <RestaurantCard resData={restaurant} />
+            {restaurant.info.avgRating >= 4.4 ? (
+              <PromotedRestaurantCard resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>
